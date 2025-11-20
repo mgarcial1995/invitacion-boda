@@ -1,0 +1,157 @@
+import foto from "../assets/nosotros.jpg";
+import anillos from "../assets/anillos.png";
+import AudioPlayerC from "../components/AudioPlayer";
+import CarruselPolaroid from "../components/Carrusel";
+import foto1 from "../assets/foto1.jpg";
+import foto2 from "../assets/foto2.jpg";
+import yape from "../assets/yape.jpg";
+import cancion from "../assets/cancion.mp3";
+import Contador from "../components/Contador";
+import Fecha from "../components/Fecha";
+import SeparadorCorazon from "../components/SeparadorCorazon";
+import SeparadorFlores from "../components/SeparadorFlores";
+import Itinerario from "../components/Intinerario";
+import Confirmacion from "../components/Confirmacion";
+import RegalosTransferencia from "../components/RegalosTransferencia";
+
+// fotos recuerdos
+import fotos1 from "../assets/fotos/foto1.jpg";
+import fotos2 from "../assets/fotos/foto2.jpg";
+import fotos3 from "../assets/fotos/foto3.jpg";
+import fotos4 from "../assets/fotos/foto4.jpg";
+import fotos5 from "../assets/fotos/foto5.jpg";
+import fotos6 from "../assets/fotos/foto6.jpg";
+import fotos7 from "../assets/fotos/foto7.jpg";
+import fotos8 from "../assets/fotos/foto8.jpg";
+import fotos9 from "../assets/fotos/foto9.jpg";
+import fotos10 from "../assets/fotos/foto10.jpg";
+import fotos11 from "../assets/fotos/foto11.jpg";
+import fotos12 from "../assets/fotos/foto12.jpg";
+import fotos13 from "../assets/fotos/foto13.jpg";
+import fotos14 from "../assets/fotos/foto14.jpg";
+import fotos15 from "../assets/fotos/foto15.jpg";
+import fotos16 from "../assets/fotos/foto16.jpg";
+import fotos17 from "../assets/fotos/foto17.jpg";
+import fotos18 from "../assets/fotos/foto18.jpg";
+import fotos19 from "../assets/fotos/foto19.jpg";
+import fotos20 from "../assets/fotos/foto20.jpg";
+import fotos21 from "../assets/fotos/foto21.jpg";
+import fotos22 from "../assets/fotos/foto22.jpg";
+import fotos23 from "../assets/fotos/foto23.jpg";
+
+const Home = () => {
+  const fotos = [
+    { src: fotos23, desc: "Primera salida juntos" },
+    { src: fotos1, desc: "Una salida nocturna de mucha diversión." },
+    { src: fotos19, desc: "Actividades juntos." },
+    { src: fotos22, desc: "Una salida a la playita." },
+    { src: fotos18, desc: "El dia en que nos entramos que sentiamos lo mismo." },
+    { src: fotos21, desc: "Dia de la declaración de amor." },
+    { src: fotos20, desc: "Primer dia de novios." },
+    { src: fotos11, desc: "Dia de la madre juntos." },
+    { src: fotos9, desc: "Nuestra confe JAS." },
+    { src: fotos10, desc: "El lazo mas fuerte que nos une." },
+    { src: fotos12, desc: "Viajando juntos." },
+    { src: fotos7, desc: "Pedida de mano en una hermosa salidita." },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#FAF7F2]  font-[Poppins]">
+      <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
+        <img
+          src={fotos6}
+          alt="Nosotros"
+          className="absolute inset-0 w-full h-full object-cover blur-sm scale-105"
+        />
+        <img
+          src={fotos6}
+          alt="Nosotros"
+          className="absolute z-10 w-3/4 md:w-1/2 rounded-3xl shadow-2xl border-4 border-gold"
+        />
+        <div className="relative z-10 px-6 text-white italic">
+          <h1 className="text-5xl md:text-7xl font-serif  drop-shadow-xl mb-3">
+            <span className="mr-12">M</span>
+            <br />&<br />
+            <span className="ml-12">F</span>
+          </h1>
+          <p className="text-xl  md:text-2xl italic">
+            “Dos almas, <br /> un solo corazón.”
+          </p>
+        </div>
+      </section>
+
+      <section className="text-center py-16 ">
+        <p className="font-[Playfair_Display] text-black-soft mb-2">
+          Te invitamos a celebrar con nosotros
+        </p>
+        <h1 className="text-5xl font-[Playfair_Display] italic text-[#B28F00] mb-2">
+          Nuestra Boda
+        </h1>
+        <img
+          src={anillos}
+          alt="Anillos de boda"
+          className="w-auto h-16 mx-auto mb-2"
+        />
+      </section>
+
+      <div className="my-12">
+        <AudioPlayerC src={cancion} />
+      </div>
+      <Fecha fecha="2025-12-14T16:00:00" foto={fotos3} />
+
+      <section className="text-center my-10 font-[Playfair_Display] text-black-soft px-8">
+        <p className="mb-4">
+          Cuando Dios es el centro del amor en una pareja, el amor se vuelve más
+          fuerte, más puro y eterno.
+        </p>
+        <p className="mb-4">
+          Él cruzó nuestros caminos en el momento perfecto, ha sido nuestra
+          guía, nuestra fuerza y nuestra luz.
+        </p>
+        <p className="mb-4">
+          Nos enseñó que el verdadero amor es paciente, bondadoso y lleno de fé.
+        </p>
+        <p className="mb-4">
+          Hemos decidido unir nuestras vidas en matrimonio civil, con la certeza
+          de que no caminamos solos, porque Dios es y será siempre el centro de
+          nuestro amor.
+        </p>
+        <SeparadorCorazon />
+      </section>
+      <CarruselPolaroid fotos={fotos} />
+      <SeparadorCorazon />
+      <section className="py-10 text-center">
+        <div>
+          <Contador fechaObjetivo="2025-12-14T16:00:00" />
+        </div>
+      </section>
+      <SeparadorFlores />
+      <div className="my-12">
+        <Itinerario
+          fecha="2025-12-14"
+          horaCeremonia="3:00 PM"
+          lugarCeremonia="Canto Grande"
+          mapsCeremonia="https://www.google.com/maps?q=Canto+Grande"
+          horaRecepcion="6:00 PM"
+          lugarRecepcion="Portada del Sol"
+          mapsRecepcion="https://www.google.com/maps?q=Portada+del+Sol"
+        />
+      </div>
+      <div>
+        <RegalosTransferencia
+          numeroCuenta="BCP - 1234567890123 - Martín García"
+          yapeQR={yape}
+        />
+      </div>
+      <div className="my-2">
+        <Confirmacion
+          onConfirmar={() => {
+            console.log("Asistencia confirmada");
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Home;

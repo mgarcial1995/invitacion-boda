@@ -1,0 +1,48 @@
+@import "tailwindcss";
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #FAF7F2;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+@import "tailwindcss";
+
+@theme {
+  /* 🎨 COLORES BASE */
+  --color-cream: #FAF7F2;           /* crema cálido */
+  --color-hueso: #F3EEE5;           /* casi papel artesanal */
+  --color-champagne: #ECDCC3;       /* champagne suave */
+  --color-gold: #D4AF37;            /* dorado clásico */
+  --color-gold-soft: #C7A45A;       /* dorado suave */
+  --color-pearl: #DAD7D1;           /* gris perla elegante */
+  --color-smoke: #6F6F6F;           /* gris humo para textos */
+  --color-black-soft: #2C2C2C;      /* negro suave, más elegante */
+
+  /* 🔘 Blancos */
+  --color-white: #FFFFFF;
+  --color-white-soft: #FEFCFA;
+
+  /* ✍️ TIPOGRAFÍAS */
+  --font-titulo: "Playfair Display", serif;
+  --font-texto: "Poppins", sans-serif;
+}
+
+@keyframes fadeInSlow {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInSlow {
+  animation: fadeInSlow 1.5s ease forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 1.3s ease forwards;
+}
