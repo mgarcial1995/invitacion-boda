@@ -29,44 +29,35 @@ import fotos11 from "../assets/fotos/foto11.jpg";
 import fotos12 from "../assets/fotos/foto12.jpg";
 import fotos13 from "../assets/fotos/foto13.jpg";
 import fotos14 from "../assets/fotos/foto14.jpg";
-import fotos15 from "../assets/fotos/foto15.jpg";
-import fotos16 from "../assets/fotos/foto16.jpg";
-import fotos17 from "../assets/fotos/foto17.jpg";
-import fotos18 from "../assets/fotos/foto18.jpg";
-import fotos19 from "../assets/fotos/foto19.jpg";
-import fotos20 from "../assets/fotos/foto20.jpg";
-import fotos21 from "../assets/fotos/foto21.jpg";
-import fotos22 from "../assets/fotos/foto22.jpg";
-import fotos23 from "../assets/fotos/foto23.jpg";
 
 const Home = () => {
   const fotos = [
-    { src: fotos23, desc: "Primera salida juntos" },
+    { src: fotos3, desc: "Primera salida juntos" },
     { src: fotos1, desc: "Una salida nocturna de mucha diversión." },
-    { src: fotos19, desc: "Actividades juntos." },
-    { src: fotos22, desc: "Una salida a la playita." },
-    { src: fotos18, desc: "El dia en que nos entramos que sentiamos lo mismo." },
-    { src: fotos21, desc: "Dia de la declaración de amor." },
-    { src: fotos20, desc: "Primer dia de novios." },
-    { src: fotos11, desc: "Dia de la madre juntos." },
-    { src: fotos9, desc: "Nuestra confe JAS." },
+    { src: fotos2, desc: "Actividades juntos." },
+    { src: fotos3, desc: "Una salida a la playita." },
+    { src: fotos4, desc: "El dia en que nos entramos que sentiamos lo mismo." },
+    { src: fotos5, desc: "Dia de la declaración de amor." },
+    { src: fotos6, desc: "Primer dia de novios." },
+    { src: fotos7, desc: "Dia de la madre juntos." },
+    { src: fotos8, desc: "Nuestra confe JAS." },
     { src: fotos10, desc: "El lazo mas fuerte que nos une." },
     { src: fotos12, desc: "Viajando juntos." },
-    { src: fotos7, desc: "Pedida de mano en una hermosa salidita." },
+    { src: fotos9, desc: "Pedida de mano en una hermosa salidita." },
   ];
 
-  const fecha = '2025-12-19T16:00:00'
+  const fecha = '2025-12-20T16:00:00'
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]  font-[Poppins]">
       <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
         <img
-          src={fotos6}
+          src={fotos14}
           alt="Nosotros"
           className="absolute inset-0 w-full h-full object-cover blur-sm scale-105"
         />
         <img
-          src={fotos6}
+          src={fotos14}
           alt="Nosotros"
           className="absolute z-10 w-3/4 md:w-1/2 rounded-3xl shadow-2xl border-4 border-gold"
         />
@@ -130,7 +121,7 @@ const Home = () => {
       <SeparadorFlores />
       <div className="my-12">
         <Itinerario
-          fecha="2025-12-14"
+          fecha={fecha}
           horaCeremonia="3:00 PM"
           lugarCeremonia="Canto Grande"
           mapsCeremonia="https://www.google.com/maps?q=Canto+Grande"

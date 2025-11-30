@@ -49,9 +49,9 @@ export default function CarruselPolaroid({ fotos = [] }) {
                 </div>
 
                 {/* Descripción tipo Polaroid */}
-                <div className="mt-3 text-center text-smoke text-sm font-texto italic">
+                {/* <div className="mt-3 text-center text-smoke text-sm font-texto italic">
                   {foto.desc}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
