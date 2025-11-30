@@ -10,9 +10,11 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
       <h2 className="font-[Playfair_Display] text-3xl text-[#9C7A00] italic mb-10">
         Regalos & Transferencias
       </h2>
-
+      <p className="text-[#4B4B4B] font-[Poppins] text-sm leading-relaxed">
+        Tu presencia es nuestro mejor regalo, pero si gustar algun presente, dejamos nuestro sobre digital.
+      </p>
       {/* REGALOS */}
-      <div className="mb-14">
+      <div className="mb-14 mt-12">
         <h3 className="text-[#A28E67] font-[Playfair_Display] text-2xl mb-4">
           REGALOS
         </h3>
@@ -20,8 +22,7 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
         <img src={sobre} alt="Sobre" className="w-24 mx-auto mb-4" />
 
         <p className="text-[#4B4B4B] font-[Poppins] text-sm leading-relaxed">
-          La tradicional lluvia de sobres consiste en regalar un aporte
-          económico el día del evento.
+          Puedes apoyarnos con algunas cosas para nuestro nuevo hogar a través de nuestra lista de regalos.
         </p>
       </div>
 
@@ -40,12 +41,12 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
           {numeroCuenta}
         </p>
 
-        <button
+        {/* <button
           onClick={() => navigator.clipboard.writeText(numeroCuenta)}
           className="bg-gradient-to-b from-[#E4C77F] to-[#B79240] text-white font-semibold px-6 py-2 rounded-full shadow-md active:scale-95 transition-all"
         >
           Copiar número
-        </button>
+        </button> */}
 
         {/* QR */}
         {yapeQR && (

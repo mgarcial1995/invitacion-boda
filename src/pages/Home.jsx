@@ -55,6 +55,8 @@ const Home = () => {
     { src: fotos7, desc: "Pedida de mano en una hermosa salidita." },
   ];
 
+  const fecha = '2025-12-19T16:00:00'
+
   return (
     <div className="min-h-screen bg-[#FAF7F2]  font-[Poppins]">
       <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
@@ -97,7 +99,7 @@ const Home = () => {
       <div className="my-12">
         <AudioPlayerC src={cancion} />
       </div>
-      <Fecha fecha="2025-12-14T16:00:00" foto={fotos3} />
+      <Fecha fecha={fecha} foto={fotos3} />
 
       <section className="text-center my-10 font-[Playfair_Display] text-black-soft px-8">
         <p className="mb-4">
@@ -122,7 +124,7 @@ const Home = () => {
       <SeparadorCorazon />
       <section className="py-10 text-center">
         <div>
-          <Contador fechaObjetivo="2025-12-14T16:00:00" />
+          <Contador fechaObjetivo={fecha} />
         </div>
       </section>
       <SeparadorFlores />
@@ -139,7 +141,7 @@ const Home = () => {
       </div>
       <div>
         <RegalosTransferencia
-          numeroCuenta="BCP - 1234567890123 - Martín García"
+          numeroCuenta="Interbank - 8983482700324"
           yapeQR={yape}
         />
       </div>
