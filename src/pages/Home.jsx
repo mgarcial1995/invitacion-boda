@@ -75,17 +75,17 @@ const Home = () => {
         />
 
         {/* Texto abajo */}
-        <h3 className="absolute bottom-16 md:bottom-24 text-4xl md:text-4xl font-[Great_Vibes] italic text-white drop-shadow-lg z-20">
+        <h3 className="absolute bottom-16 md:bottom-24 text-4xl md:text-6xl font-[Great_Vibes] italic text-white drop-shadow-lg z-20">
           Martín & Fabiola
         </h3>
       </section>
 
-      <section className="text-center py-16 ">
-        <p className="font-[Playfair_Display] text-black-soft mb-2">
-          Te invitamos a celebrar con nosotros
+      <section className="text-center py-12 ">
+        <p className="font-[Playfair_Display] text-black-soft mb-4 px-2">
+          Eres parte de nuestras personas especiales y por eso queremos compartir contigo nuestro
         </p>
         <h1 className="text-5xl font-[Playfair_Display] italic text-[#B28F00] mb-2">
-          Nuestra Boda
+          Matrimonio Civil
         </h1>
         <img
           src={anillos}
@@ -97,7 +97,7 @@ const Home = () => {
       <div className="my-12">
         <AudioPlayerC src={cancion} />
       </div>
-      <Fecha fecha={fecha} foto={fotos3} />
+      
 
       <section className="text-center my-10 font-[Playfair_Display] text-black-soft px-8">
         <p className="mb-4">
@@ -120,6 +120,7 @@ const Home = () => {
       </section>
       <CarruselPolaroid fotos={fotos} />
       <SeparadorCorazon />
+      <Fecha fecha={fecha} foto={fotos3} />
       <section className="py-10 text-center">
         <div>
           <Contador fechaObjetivo={fecha} />

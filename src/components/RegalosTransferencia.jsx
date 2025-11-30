@@ -11,7 +11,7 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
         Regalos & Transferencias
       </h2>
       <p className="text-[#4B4B4B] font-[Poppins] text-sm leading-relaxed">
-        Tu presencia es nuestro mejor regalo, pero si gustar algun presente, dejamos nuestro sobre digital.
+        Tu presencia es nuestro mejor regalo, pero si gustas hacernos algun presente, aqui dejamos nuestro sobre digital.
       </p>
       {/* REGALOS */}
       <div className="mb-14 mt-12">

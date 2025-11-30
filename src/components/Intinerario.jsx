@@ -27,13 +27,13 @@ export default function Itinerario({
       }}
     >
       {/* FECHA */}
-      <div className="text-center mb-10 relative z-10">
+      {/* <div className="text-center mb-10 relative z-10">
         <p className="text-lg tracking-wide font-texto">SABADO</p>
         <p className="text-7xl font-titulo leading-none">{dia}</p>
         <p className="text-lg tracking-wide font-texto">
           {mes} {año}
         </p>
-      </div>
+      </div> */}
 
       {/* CEREMONIA */}
       <div className="text-center mt-6 relative z-10">

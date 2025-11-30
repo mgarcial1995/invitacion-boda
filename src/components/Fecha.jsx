@@ -10,7 +10,7 @@ export default function Fecha({ fecha, foto }) {
   return (
     <div className="relative w-full flex flex-col items-center text-center my-12">
       {/* FOTO CIRCULAR */}
-      <div
+      {/* <div
         className="
           w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden
           shadow-lg bg-white-soft
@@ -21,9 +21,8 @@ export default function Fecha({ fecha, foto }) {
       >
         <img src={foto} className="w-full h-full object-cover" />
 
-        {/* ✨ brillo suave alrededor */}
         <div className="absolute inset-0 rounded-full shadow-[0_0_15px_3px_rgba(212,175,55,0.45)]"></div>
-      </div>
+      </div> */}
 
       {/* FECHA */}
       <div
