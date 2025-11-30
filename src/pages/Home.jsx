@@ -82,7 +82,8 @@ const Home = () => {
 
       <section className="text-center py-12 ">
         <p className="font-[Playfair_Display] text-black-soft mb-4 px-2">
-          Eres parte de nuestras personas especiales y por eso queremos compartir contigo nuestro
+          Eres parte de nuestras personas especiales y por eso queremos
+          compartir contigo nuestro
         </p>
         <h1 className="text-5xl font-[Playfair_Display] italic text-[#B28F00] mb-2">
           Matrimonio Civil
@@ -97,7 +98,6 @@ const Home = () => {
       <div className="my-12">
         <AudioPlayerC src={cancion} />
       </div>
-      
 
       <section className="text-center my-10 font-[Playfair_Display] text-black-soft px-8">
         <p className="mb-4">
@@ -109,7 +109,8 @@ const Home = () => {
           guía, nuestra fuerza y nuestra luz.
         </p>
         <p className="mb-4">
-          Nos enseñó que el verdadero amor es paciente, bondadoso y lleno de fé.
+          Gracias a nuestro angelito eterno, que con su luz acompaña nuestra
+          historia y ha sido parte de cada paso que nos llevó hasta este día.
         </p>
         <p className="mb-4">
           Hemos decidido unir nuestras vidas en matrimonio civil, con la certeza
