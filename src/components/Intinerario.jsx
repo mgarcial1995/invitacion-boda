@@ -1,6 +1,7 @@
 import fondo from "../assets/fondo.png";
-import IglesiaIcon from "../assets/icons/iglesia.jsx";
-import BrindisIcon from "../assets/icons/brindis.jsx";
+import copas from "../assets/copas.png";
+import novios from "../assets/novios.png";
+import vestimenta from "../assets/vestimenta.png";
 export default function Itinerario({
   fecha,
   horaCeremonia,
@@ -26,19 +27,11 @@ export default function Itinerario({
         backgroundPosition: "center",
       }}
     >
-      {/* FECHA */}
-      {/* <div className="text-center mb-10 relative z-10">
-        <p className="text-lg tracking-wide font-texto">SABADO</p>
-        <p className="text-7xl font-titulo leading-none">{dia}</p>
-        <p className="text-lg tracking-wide font-texto">
-          {mes} {año}
-        </p>
-      </div> */}
-
+    
       {/* CEREMONIA */}
       <div className="text-center mt-6 relative z-10">
         <p className="text-lg font-semibold mt-2">Ceremonia</p>
-        <IglesiaIcon className="w-12 h-12 mx-auto mb-3 opacity-90" />
+        <img src={novios} alt="Iglesia" className="w-32 h-32 mx-auto mb-3 opacity-90" />
         <p className="text-3xl font-texto">{horaCeremonia}</p>
         <p className="text-lg font-semibold mt-2">{lugarCeremonia}</p>
 
@@ -55,7 +48,8 @@ export default function Itinerario({
       {/* RECEPCIÓN */}
       <div className="text-center mt-2 relative z-10">
         <p className="text-lg font-semibold mt-2">Recepción</p>
-        <BrindisIcon className="w-12 h-12 mx-auto mb-3 opacity-90" />
+        <img src={copas} alt="Brindis" className="w-24 h-24 mx-auto mb-3 opacity-90" />
+        {/* <BrindisIcon className="w-12 h-12 mx-auto mb-3 opacity-90" /> */}
         <p className="text-3xl font-texto">{horaRecepcion}</p>
         <p className="text-lg font-semibold mt-2">{lugarRecepcion}</p>
 
@@ -64,6 +58,17 @@ export default function Itinerario({
             Llegar a Recepción
           </button>
         </a>
+      </div>
+
+      {/* SEPARADOR */}
+      <div className="w-20 h-[2px] bg-cream/70 mx-auto my-6 rounded-full"></div>
+
+      {/* VESTIMENTA */}
+      <div className="text-center mt-2 relative z-10">
+        <p className="text-lg font-semibold mt-2">Código de vestimenta</p>
+        <img src={vestimenta} alt="vestimenta" className="w-32 h-32 mx-auto mb-3 opacity-90" />
+        <p className="text-3xl font-texto">Formal</p>
+
       </div>
 
     </div>

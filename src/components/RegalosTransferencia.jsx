@@ -11,7 +11,9 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
         Regalos & Transferencias
       </h2>
       <p className="text-[#4B4B4B] font-[Poppins] text-sm leading-relaxed">
-        Tu presencia es nuestro mejor regalo, pero si gustas hacernos algun presente, aqui dejamos nuestro sobre digital.
+        Agradecemos de corazon su cariño, compañia y generosidad. Tu presencia
+        es el mejor regalo, pero si deseas obserquiarnos algo más, sera recibido
+        con mucho amor y gratitud.
       </p>
       {/* REGALOS */}
       <div className="mb-14 mt-12">
@@ -22,7 +24,8 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
         <img src={sobre} alt="Sobre" className="w-24 mx-auto mb-4" />
 
         <p className="text-[#4B4B4B] font-[Poppins] text-sm leading-relaxed">
-          Puedes apoyarnos con algunas cosas para nuestro nuevo hogar a través de nuestra lista de regalos.
+          Puedes apoyarnos con algunas cosas para nuestro nuevo hogar a través
+          de nuestra lista de regalos.
         </p>
       </div>
 
