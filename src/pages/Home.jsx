@@ -132,10 +132,10 @@ const Home = () => {
           fecha={fecha}
           horaCeremonia="3:00 PM"
           lugarCeremonia="Canto Grande"
-          mapsCeremonia="https://www.google.com/maps?q=Canto+Grande"
+          mapsCeremonia="https://maps.app.goo.gl/W6MjNRdwWBvnWh4m7"
           horaRecepcion="6:00 PM"
           lugarRecepcion="Portada del Sol"
-          mapsRecepcion="https://www.google.com/maps?q=Portada+del+Sol"
+          mapsRecepcion="https://maps.app.goo.gl/tM7k6debxnpTV35v7"
         />
       </div>
       <div>

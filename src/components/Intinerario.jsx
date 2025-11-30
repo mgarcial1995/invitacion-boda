@@ -67,7 +67,7 @@ export default function Itinerario({
       <div className="text-center mt-2 relative z-10">
         <p className="text-lg font-semibold mt-2">Código de vestimenta</p>
         <img src={vestimenta} alt="vestimenta" className="w-32 h-32 mx-auto mb-3 opacity-90" />
-        <p className="text-3xl font-texto">Formal</p>
+        <p className="text-lg font-semibold mt-2">Formal</p>
 
       </div>
 

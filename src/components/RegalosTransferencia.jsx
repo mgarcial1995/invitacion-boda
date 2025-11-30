@@ -11,8 +11,8 @@ export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
         Regalos & Transferencias
       </h2>
       <p className="text-[#4B4B4B] font-[Poppins] text-sm leading-relaxed">
-        Agradecemos de corazon su cariño, compañia y generosidad. Tu presencia
-        es el mejor regalo, pero si deseas obserquiarnos algo más, sera recibido
+        Agradecemos de corazon tu cariño, compañia y generosidad. Tu presencia
+        es el mejor regalo, pero si deseas obsequiarnos algo más, sera recibido
         con mucho amor y gratitud.
       </p>
       {/* REGALOS */}
