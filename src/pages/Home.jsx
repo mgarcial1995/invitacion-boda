@@ -27,6 +27,8 @@ import fotos8 from "../assets/fotos/foto8.jpg";
 import fotos9 from "../assets/fotos/foto9.jpg";
 import fotos10 from "../assets/fotos/foto10.jpg";
 import fotos12 from "../assets/fotos/foto12.jpg";
+import fotos15 from "../assets/fotos/foto15.jpg";
+import fotos16 from "../assets/fotos/foto16.jpg";
 
 const Home = () => {
   const fotos = [
@@ -36,10 +38,12 @@ const Home = () => {
     { src: fotos4, desc: "El dia en que nos entramos que sentiamos lo mismo." },
     { src: fotos5, desc: "Dia de la declaración de amor." },
     { src: fotos6, desc: "Primer dia de novios." },
+    { src: fotos15, desc: "Primer dia de novios." },
     { src: fotos7, desc: "Dia de la madre juntos." },
     { src: fotos8, desc: "Nuestra confe JAS." },
     { src: fotos10, desc: "El lazo mas fuerte que nos une." },
     { src: fotos9, desc: "Pedida de mano en una hermosa salidita." },
+    { src: fotos16, desc: "Primer dia de novios." },
   ];
 
   const fecha = "2025-12-20T16:00:00";
