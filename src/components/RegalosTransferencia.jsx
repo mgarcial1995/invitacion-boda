@@ -1,9 +1,7 @@
-import { useState } from "react";
 import sobre from "../assets/sobre.png";
 import tarjeta from "../assets/tarjeta.png";
 
 export default function RegalosTransferencia({ numeroCuenta, yapeQR }) {
-  const [regalo, setRegalo] = useState("");
 
   return (
     <section className="py-2 px-8 text-center">

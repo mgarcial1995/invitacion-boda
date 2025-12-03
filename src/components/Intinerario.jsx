@@ -3,7 +3,6 @@ import copas from "../assets/copas.png";
 import novios from "../assets/novios.png";
 import vestimenta from "../assets/vestimenta.png";
 export default function Itinerario({
-  fecha,
   horaCeremonia,
   lugarCeremonia,
   mapsCeremonia,
@@ -11,11 +10,6 @@ export default function Itinerario({
   lugarRecepcion,
   mapsRecepcion,
 }) {
-  const date = new Date(fecha);
-
-  const dia = date.getDate();
-  const mes = date.toLocaleDateString("es-ES", { month: "long" }).toUpperCase();
-  const año = date.getFullYear();
 
   return (
     <div
@@ -29,7 +23,7 @@ export default function Itinerario({
     >
     
       {/* CEREMONIA */}
-      <div className="text-center mt-6 relative z-10">
+      {/* <div className="text-center mt-6 relative z-10">
         <p className="text-lg font-semibold mt-2">Ceremonia</p>
         <img src={novios} alt="Iglesia" className="w-32 h-32 mx-auto mb-3 opacity-90" />
         <p className="text-3xl font-texto">{horaCeremonia}</p>
@@ -40,16 +34,16 @@ export default function Itinerario({
             Llegar a Ceremonia
           </button>
         </a>
-      </div>
+      </div> */}
 
       {/* SEPARADOR */}
-      <div className="w-20 h-[2px] bg-cream/70 mx-auto my-6 rounded-full"></div>
+      {/* <div className="w-20 h-[2px] bg-cream/70 mx-auto my-6 rounded-full"></div> */}
 
       {/* RECEPCIÓN */}
       <div className="text-center mt-2 relative z-10">
-        <p className="text-lg font-semibold mt-2">Recepción</p>
-        <img src={copas} alt="Brindis" className="w-24 h-24 mx-auto mb-3 opacity-90" />
-        {/* <BrindisIcon className="w-12 h-12 mx-auto mb-3 opacity-90" /> */}
+        {/* <p className="text-lg font-semibold mt-2">Recepción</p> */}
+        <img src={novios} alt="Iglesia" className="w-32 h-32 mx-auto mb-3 opacity-90" />
+        {/* <img src={copas} alt="Brindis" className="w-24 h-24 mx-auto mb-3 opacity-90" /> */}
         <p className="text-3xl font-texto">{horaRecepcion}</p>
         <p className="text-lg font-semibold mt-2">{lugarRecepcion}</p>
 

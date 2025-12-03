@@ -1,4 +1,4 @@
-export default function Fecha({ fecha, foto }) {
+export default function Fecha({ fecha }) {
   const date = new Date(fecha);
 
   const dia = date.getDate();

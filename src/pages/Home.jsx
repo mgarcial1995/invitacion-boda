@@ -11,7 +11,11 @@ import Itinerario from "../components/Intinerario";
 import Confirmacion from "../components/Confirmacion";
 import RegalosTransferencia from "../components/RegalosTransferencia";
 
-// fotos recuerdos
+import { traerDatosInvitado, confirmarAsistencia } from "../services/servicios";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import LoaderFullscreen from "../components/LoaderFullscreen";
+
 import fotos1 from "../assets/fotos/foto1.jpg";
 import fotos2 from "../assets/fotos/foto2.jpg";
 import fotos3 from "../assets/fotos/foto3.jpg";
@@ -29,7 +33,6 @@ import fotos14 from "../assets/fotos/foto14.jpg";
 
 const Home = () => {
   const fotos = [
-    // { src: fotos12, desc: "Viajando juntos." },
     { src: fotos3, desc: "Primera salida juntos" },
     { src: fotos1, desc: "Una salida nocturna de mucha diversión." },
     { src: fotos2, desc: "Actividades juntos." },
@@ -44,17 +47,62 @@ const Home = () => {
 
   const fecha = "2025-12-20T16:00:00";
 
+  const [searchParams] = useSearchParams();
+  const guestCode = searchParams.get("guest");
+  const [guestData, setGuestData] = useState(null);
+
+  const [cargandoConfirmacion, setCargandoConfirmacion] = useState(false);
+  const [cargandoInvitado, setCargandoInvitado] = useState(true);
+
+  const fetchInvitado = async () => {
+    try {
+      const data = await traerDatosInvitado(guestCode);
+      console.log("Datos del invitado:", data);
+      setGuestData(data);
+    } catch (error) {
+      console.error("Error cargando invitado:", error);
+    } finally {
+      setCargandoInvitado(false);
+    }
+  };
+
+  const handleConfirm = async () => {
+    try {
+      setCargandoConfirmacion(true);
+
+      await confirmarAsistencia({ code: guestCode, attending: true });
+
+      await fetchInvitado();
+    } catch (error) {
+      console.error(error);
+      alert("Error confirmando asistencia, intenta nuevamente.");
+    } finally {
+      setCargandoConfirmacion(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!guestCode) return;
+    fetchInvitado();
+  }, [guestCode]);
+
+  if (cargandoInvitado) {
+    return <LoaderFullscreen mensaje="Cargando invitación..." />;
+  }
+
+  if (cargandoConfirmacion) {
+    return <LoaderFullscreen mensaje="Guardando confirmación..." />;
+  }
+
   return (
     <div className="min-h-screen bg-[#FAF7F2]  font-[Poppins]">
       <section className="relative h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden">
-        {/* Fondo desenfocado */}
         <img
           src={fotos12}
           alt="Nosotros"
           className="absolute inset-0 w-full h-full object-cover blur-sm scale-105"
         />
 
-        {/* Texto arriba */}
         <h2
           className="
     absolute top-16 md:top-24
@@ -67,20 +115,24 @@ const Home = () => {
           ¡Nos casamos!
         </h2>
 
-        {/* Foto principal */}
         <img
           src={fotos12}
           alt="Nosotros"
           className="relative z-10 w-3/4 md:w-1/2 rounded-3xl shadow-2xl border-4 border-gold"
         />
 
-        {/* Texto abajo */}
         <h3 className="absolute bottom-16 md:bottom-24 text-4xl md:text-6xl font-[Great_Vibes] italic text-white drop-shadow-lg z-20">
           Martín & Fabiola
         </h3>
       </section>
 
       <section className="text-center py-12 ">
+        <p className="font-[Playfair_Display] mb-2 text-black-soft ">¡Hola!</p>
+        {guestData && (
+          <p className="text-4xl font-[Great_Vibes] text-black-soft mb-2 px-2 font-semibold">
+            {guestData.full_name}
+          </p>
+        )}
         <p className="font-[Playfair_Display] text-black-soft mb-4 px-2">
           Eres parte de nuestras personas especiales y por eso queremos
           compartir contigo nuestro
@@ -134,8 +186,8 @@ const Home = () => {
           horaCeremonia="3:00 PM"
           lugarCeremonia="Canto Grande"
           mapsCeremonia="https://maps.app.goo.gl/W6MjNRdwWBvnWh4m7"
-          horaRecepcion="6:00 PM"
-          lugarRecepcion="Portada del Sol"
+          horaRecepcion="5:00 PM"
+          lugarRecepcion="Capac Llauto 235 - Frente a Parque Los Amautas"
           mapsRecepcion="https://maps.app.goo.gl/tM7k6debxnpTV35v7"
         />
       </div>
@@ -146,11 +198,13 @@ const Home = () => {
         />
       </div>
       <div className="my-2">
-        <Confirmacion
-          onConfirmar={() => {
-            console.log("Asistencia confirmada");
-          }}
-        />
+        {guestData && (
+          <Confirmacion
+            attending={guestData.attending}
+            guestCode={guestCode}
+            handleConfirm={handleConfirm}
+          />
+        )}
       </div>
     </div>
   );
