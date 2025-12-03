@@ -6,7 +6,7 @@ export default function Confirmacion({ attending, handleConfirm }) {
       <div className="relative max-w-md w-full rounded-3xl shadow-xl border border-[#E8E2D9] p-10 text-center overflow-hidden">
 
         {/* TITULO */}
-        <h2 className="mt-10 font-[Playfair_Display] text-3xl italic text-[#9C7A00]">
+        <h2 className="mt-8 font-[Playfair_Display] text-3xl italic text-[#9C7A00]">
           Confirmar Asistencia
         </h2>
 

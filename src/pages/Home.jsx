@@ -56,6 +56,7 @@ const Home = () => {
   const [cargandoInvitado, setCargandoInvitado] = useState(true);
   const [giftsSelected, setGiftsSelected] = useState([]);
   const [otherGiftText, setOtherGiftText] = useState("");
+  const [dedicacion, setDedicacion] = useState("");
 
   const fetchInvitado = async () => {
     try {
@@ -77,6 +78,7 @@ const Home = () => {
         attending: true,
         gifts: giftsSelected,
         other_gift: otherGiftText,
+        dedication: dedicacion,
       });
 
       await fetchInvitado();
@@ -111,6 +113,8 @@ const Home = () => {
         />
 
         <h2
+          data-aos="fade-down"
+          data-aos-delay="150"
           className="
     absolute top-16 md:top-24
     text-4xl md:text-5xl
@@ -124,11 +128,17 @@ const Home = () => {
 
         <img
           src={fotos12}
+          data-aos="zoom-in"
+          data-aos-delay="500"
           alt="Nosotros"
           className="relative z-10 w-3/4 md:w-1/2 rounded-3xl shadow-2xl border-4 border-gold"
         />
 
-        <h3 className="absolute bottom-16 md:bottom-24 text-4xl md:text-6xl font-[Great_Vibes] italic text-white drop-shadow-lg z-20">
+        <h3
+          data-aos="fade-up"
+          data-aos-delay="500"
+          className="absolute bottom-16 md:bottom-24 text-4xl md:text-6xl font-[Great_Vibes] italic text-white drop-shadow-lg z-20"
+        >
           Martín & Fabiola
         </h3>
       </section>
@@ -158,36 +168,47 @@ const Home = () => {
         <AudioPlayerC src={cancion} />
       </div>
 
-      <section className="text-center my-10 font-[Playfair_Display] text-black-soft px-8">
-        <p className="mb-4">
+      <section
+        // data-aos="fade-right"
+        className="text-center my-10 font-[Playfair_Display] text-black-soft px-8"
+      >
+        <p data-aos="fade-up" data-aos-delay="0" className="mb-4">
           Cuando Dios es el centro del amor en una pareja, el amor se vuelve más
           fuerte, más puro y eterno.
         </p>
-        <p className="mb-4">
+        <p data-aos="fade-up" data-aos-delay="150" className="mb-4">
           Él cruzó nuestros caminos en el momento perfecto, ha sido nuestra
           guía, nuestra fuerza y nuestra luz.
         </p>
-        <p className="mb-4">
+        <p data-aos="fade-up" data-aos-delay="300" className="mb-4">
           Gracias a nuestro angelito eterno, que con su luz acompaña nuestra
           historia y ha sido parte de cada paso que nos llevó hasta este día.
         </p>
-        <p className="mb-4">
+        <p data-aos="fade-up" data-aos-delay="450" className="mb-4">
           Hemos decidido unir nuestras vidas en matrimonio civil, con la certeza
           de que no caminamos solos, porque Dios es y será siempre el centro de
           nuestro amor.
         </p>
-        <SeparadorCorazon />
-      </section>
-      <CarruselPolaroid fotos={fotos} />
-      <SeparadorCorazon />
-      <Fecha fecha={fecha} foto={fotos3} />
-      <section className="py-10 text-center">
-        <div>
-          <Contador fechaObjetivo={fecha} />
+        <div data-aos="zoom-in">
+          <SeparadorCorazon />
         </div>
       </section>
-      <SeparadorFlores />
-      <div className="my-12">
+      <div data-aos="fade-up">
+        <CarruselPolaroid fotos={fotos} />
+      </div>
+      <div data-aos="zoom-in">
+        <SeparadorCorazon />
+      </div>
+      <div data-aos="fade-up">
+        <Fecha fecha={fecha} foto={fotos3} />
+      </div>
+      <section data-aos="zoom-in" className="py-10 text-center">
+        <Contador fechaObjetivo={fecha} />
+      </section>
+      <div data-aos="zoom-in">
+        <SeparadorFlores />
+      </div>
+      <div data-aos="flip-up" className="my-12">
         <Itinerario
           fecha={fecha}
           horaCeremonia="3:00 PM"
@@ -198,7 +219,7 @@ const Home = () => {
           mapsRecepcion="https://maps.app.goo.gl/tM7k6debxnpTV35v7"
         />
       </div>
-      <div>
+      <div data-aos="fade-up">
         <RegalosTransferencia
           numeroCuenta="Interbank - 8983482700324"
           yapeQR={yape}
@@ -209,7 +230,33 @@ const Home = () => {
           }}
         />
       </div>
-      <div className="my-2">
+      {guestData && (
+        <section data-aos="fade-up" className="px-8 py-4 text-center">
+          <h2 className="font-[Playfair_Display] text-3xl text-[#9C7A00] italic mb-4">
+            Dedicatoria
+          </h2>
+
+          <p className="text-[#4B4B4B] font-[Poppins] text-sm mb-6">
+            Si deseas dejarnos unas palabras especiales, puedes escribirlas aquí
+            💛
+          </p>
+
+          <textarea
+            value={dedicacion}
+            onChange={(e) => setDedicacion(e.target.value)}
+            placeholder="Escribe tu mensaje aquí..."
+            className="
+        w-full max-w-md mx-auto h-32 p-4
+        rounded-2xl border border-[#D4C49A] 
+        bg-white shadow-sm font-[Poppins]
+        focus:outline-none focus:ring-2 focus:ring-[#B79240]
+        resize-none text-sm text-[#4B4B4B]
+      "
+          ></textarea>
+        </section>
+      )}
+
+      <div data-aos="zoom-in" data-aos-delay="200" className="my-2">
         {guestData && (
           <Confirmacion
             attending={guestData.attending}

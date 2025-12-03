@@ -10,12 +10,14 @@ export const confirmarAsistencia = async ({
   attending,
   gifts,
   other_gift,
+  dedication,
 }) => {
   const response = await apiClient.patch(`/guests/confirm`, {
     code,
     attending,
     gifts,
     other_gift,
+    dedication,
   });
   return response.data;
 };
