@@ -51,6 +51,7 @@ const Home = () => {
   const [cargandoConfirmacion, setCargandoConfirmacion] = useState(false);
   const [cargandoInvitado, setCargandoInvitado] = useState(true);
   const [giftsSelected, setGiftsSelected] = useState([]);
+  const [otherGiftText, setOtherGiftText] = useState("");
 
   const fetchInvitado = async () => {
     try {
@@ -71,6 +72,7 @@ const Home = () => {
         code: guestCode,
         attending: true,
         gifts: giftsSelected,
+        other_gift: otherGiftText,
       });
 
       await fetchInvitado();
@@ -193,16 +195,14 @@ const Home = () => {
         />
       </div>
       <div>
-        {/* <RegalosTransferencia
-          numeroCuenta="Interbank - 8983482700324"
-          yapeQR={yape}
-          onSelectGifts={setSelectedGifts}
-        /> */}
         <RegalosTransferencia
           numeroCuenta="Interbank - 8983482700324"
           yapeQR={yape}
           guestCode={guestCode}
-          onSaveGifts={(gifts) => setGiftsSelected(gifts)}
+          onSaveGifts={(gifts, otherGiftText) => {
+            setGiftsSelected(gifts);
+            setOtherGiftText(otherGiftText); // ⬅ guardar texto del regalo adicional
+          }}
         />
       </div>
       <div className="my-2">

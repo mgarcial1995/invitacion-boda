@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { traerRegalos } from "../services/servicios";
 
-export default function ModalRegalos({ open, onClose, onSaveGifts }) {
+export default function ModalRegalos({
+  open,
+  onClose,
+  onSaveGifts,
+}) {
   const [gifts, setGifts] = useState([]);
   const [selected, setSelected] = useState([]);
+  const [otherSelected, setOtherSelected] = useState(false);
+  const [otherGiftText, setOtherGiftText] = useState("");
 
   const fetchGifts = async () => {
     try {
@@ -15,29 +21,38 @@ export default function ModalRegalos({ open, onClose, onSaveGifts }) {
   };
 
   useEffect(() => {
-    if (!open) return;
-    setSelected([]); // Solo reiniciar la selección CUANDO se abre
-    fetchGifts();
+    if (open) fetchGifts();
   }, [open]);
 
   if (!open) return null;
 
   const handleToggle = (id) => {
     setSelected((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+      prev.includes(id)
+        ? prev.filter((x) => x !== id)
+        : [...prev, id]
     );
   };
 
   const handleSave = () => {
-    onSaveGifts(selected);
+    if (otherSelected && otherGiftText.trim() === "") {
+      alert("Por favor escribe el regalo en 'Otros'");
+      return;
+    }
+
+    onSaveGifts(selected, otherSelected ? otherGiftText : null);
     onClose();
   };
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-4">
       <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-xl relative border-[2px] border-[#D4C49A]">
+
         {/* BOTÓN CERRAR */}
-        <button className="absolute right-4 top-4 text-xl" onClick={onClose}>
+        <button
+          className="absolute right-4 top-4 text-xl"
+          onClick={onClose}
+        >
           ✕
         </button>
 
@@ -45,6 +60,7 @@ export default function ModalRegalos({ open, onClose, onSaveGifts }) {
           Lista de Regalos
         </h2>
 
+        {/* LISTA DE REGALOS */}
         <div className="max-h-80 overflow-y-auto space-y-4 pr-2">
           {gifts.map((gift) => (
             <div
@@ -56,6 +72,7 @@ export default function ModalRegalos({ open, onClose, onSaveGifts }) {
               }`}
             >
               <div className="flex items-start gap-3">
+
                 {/* Checkbox solo si está disponible */}
                 {gift.status === "available" ? (
                   <input
@@ -81,6 +98,36 @@ export default function ModalRegalos({ open, onClose, onSaveGifts }) {
               </div>
             </div>
           ))}
+
+          {/* OPCIÓN "OTROS" */}
+          <div className="p-4 rounded-xl border border-[#D4C49A]">
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                className="mt-1 h-5 w-5 accent-[#A28E67]"
+                checked={otherSelected}
+                onChange={() => setOtherSelected(!otherSelected)}
+              />
+
+              <div className="w-full">
+                <p className="font-semibold">Otros</p>
+                <p className="text-sm text-gray-600">
+                  Si deseas regalar algo diferente, puedes escribirlo aquí.
+                </p>
+
+                {otherSelected && (
+                  <textarea
+                    className="w-full mt-2 border border-[#D4C49A] rounded-lg p-2 text-sm"
+                    rows={3}
+                    value={otherGiftText}
+                    onChange={(e) => setOtherGiftText(e.target.value)}
+                    placeholder="Escribe el regalo que deseas darnos..."
+                  ></textarea>
+                )}
+              </div>
+            </div>
+          </div>
+
         </div>
 
         {/* BOTÓN GUARDAR */}
@@ -88,8 +135,9 @@ export default function ModalRegalos({ open, onClose, onSaveGifts }) {
           onClick={handleSave}
           className="mt-6 w-full bg-gradient-to-b from-[#E4C77F] to-[#B79240] text-white py-3 rounded-full shadow-md font-semibold active:scale-95 transition-all"
         >
-          Confirmar regalos seleccionados
+          Confirmar regalos
         </button>
+
       </div>
     </div>
   );

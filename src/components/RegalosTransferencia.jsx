@@ -7,13 +7,12 @@ export default function RegalosTransferencia({
   numeroCuenta,
   yapeQR,
   guestCode,
-  onSaveGifts
+  onSaveGifts,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="py-2 px-8 text-center">
-
       <h2 className="font-[Playfair_Display] text-3xl text-[#9C7A00] italic mb-6">
         Regalos & Transferencias
       </h2>
@@ -23,32 +22,37 @@ export default function RegalosTransferencia({
         será recibido con mucho amor.
       </p>
 
-      {/* Abrir modal */}
-      <div className="mb-10">
-        <h3 className="text-[#A28E67] font-[Playfair_Display] text-2xl mb-4">
-          REGALOS
-        </h3>
-
-        <img
-          src={sobre}
-          alt="Sobre"
-          className="w-24 mx-auto mb-4 cursor-pointer hover:scale-110 transition"
+      <div className="flex flex-col items-center mb-10">
+        <button
           onClick={() => setModalOpen(true)}
-        />
+          className="
+      w-28 h-28
+      rounded-full
+      bg-gradient-to-b from-[#E4C77F] to-[#B79240]
+      shadow-lg
+      flex items-center justify-center
+      hover:scale-105 active:scale-95 transition
+      border-2 border-white
+      cursor-pointer animate-[pulseGift_1.8s_ease-in-out_infinite]
+    "
+        >
+          <img src={sobre} className="w-14 drop-shadow-md" />
+        </button>
 
-        <p className="text-[#4B4B4B] font-[Poppins] text-sm">
-          Haz clic sobre el ícono para elegir un regalo 🎁
+        <p className="mt-3 text-[#A28E67] font-[Playfair_Display] text-xl italic">
+          Elegir regalos
         </p>
       </div>
-
       {/* Modal */}
       <ModalRegalos
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         guestCode={guestCode}
-        onSaveGifts={onSaveGifts}
+        onSaveGifts={(gifts, otherGiftText) => {
+          console.log("Regalos seleccionados:", gifts, otherGiftText);
+          onSaveGifts(gifts, otherGiftText);
+        }}
       />
-
       {/* TRANSFERENCIA */}
       <div className="mb-14">
         <h3 className="text-[#A28E67] font-[Playfair_Display] text-2xl mb-4">

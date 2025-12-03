@@ -1,28 +1,29 @@
 @import "tailwindcss";
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background-color: #FAF7F2;
+  background-color: #faf7f2;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 @import "tailwindcss";
 
 @theme {
   /* 🎨 COLORES BASE */
-  --color-cream: #FAF7F2;           /* crema cálido */
-  --color-hueso: #F3EEE5;           /* casi papel artesanal */
-  --color-champagne: #ECDCC3;       /* champagne suave */
-  --color-gold: #D4AF37;            /* dorado clásico */
-  --color-gold-soft: #C7A45A;       /* dorado suave */
-  --color-pearl: #DAD7D1;           /* gris perla elegante */
-  --color-smoke: #6F6F6F;           /* gris humo para textos */
-  --color-black-soft: #2C2C2C;      /* negro suave, más elegante */
+  --color-cream: #faf7f2; /* crema cálido */
+  --color-hueso: #f3eee5; /* casi papel artesanal */
+  --color-champagne: #ecdcc3; /* champagne suave */
+  --color-gold: #d4af37; /* dorado clásico */
+  --color-gold-soft: #c7a45a; /* dorado suave */
+  --color-pearl: #dad7d1; /* gris perla elegante */
+  --color-smoke: #6f6f6f; /* gris humo para textos */
+  --color-black-soft: #2c2c2c; /* negro suave, más elegante */
 
   /* 🔘 Blancos */
-  --color-white: #FFFFFF;
-  --color-white-soft: #FEFCFA;
+  --color-white: #ffffff;
+  --color-white-soft: #fefcfa;
 
   /* ✍️ TIPOGRAFÍAS */
   --font-titulo: "Playfair Display", serif;
@@ -30,13 +31,37 @@ html, body {
 }
 
 @keyframes fadeInSlow {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGift {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .animate-fadeInSlow {

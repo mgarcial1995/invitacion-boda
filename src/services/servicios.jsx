@@ -5,11 +5,17 @@ export const traerDatosInvitado = async (code) => {
   return response.data;
 };
 
-export const confirmarAsistencia = async ({ code, attending, gifts }) => {
+export const confirmarAsistencia = async ({
+  code,
+  attending,
+  gifts,
+  other_gift,
+}) => {
   const response = await apiClient.patch(`/guests/confirm`, {
     code,
     attending,
-    gifts
+    gifts,
+    other_gift,
   });
   return response.data;
 };
