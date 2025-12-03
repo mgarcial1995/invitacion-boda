@@ -26,10 +26,7 @@ import fotos7 from "../assets/fotos/foto7.jpg";
 import fotos8 from "../assets/fotos/foto8.jpg";
 import fotos9 from "../assets/fotos/foto9.jpg";
 import fotos10 from "../assets/fotos/foto10.jpg";
-import fotos11 from "../assets/fotos/foto11.jpg";
 import fotos12 from "../assets/fotos/foto12.jpg";
-import fotos13 from "../assets/fotos/foto13.jpg";
-import fotos14 from "../assets/fotos/foto14.jpg";
 
 const Home = () => {
   const fotos = [
@@ -53,6 +50,7 @@ const Home = () => {
 
   const [cargandoConfirmacion, setCargandoConfirmacion] = useState(false);
   const [cargandoInvitado, setCargandoInvitado] = useState(true);
+  const [giftsSelected, setGiftsSelected] = useState([]);
 
   const fetchInvitado = async () => {
     try {
@@ -69,8 +67,11 @@ const Home = () => {
   const handleConfirm = async () => {
     try {
       setCargandoConfirmacion(true);
-
-      await confirmarAsistencia({ code: guestCode, attending: true });
+      await confirmarAsistencia({
+        code: guestCode,
+        attending: true,
+        gifts: giftsSelected,
+      });
 
       await fetchInvitado();
     } catch (error) {
@@ -192,9 +193,16 @@ const Home = () => {
         />
       </div>
       <div>
+        {/* <RegalosTransferencia
+          numeroCuenta="Interbank - 8983482700324"
+          yapeQR={yape}
+          onSelectGifts={setSelectedGifts}
+        /> */}
         <RegalosTransferencia
           numeroCuenta="Interbank - 8983482700324"
           yapeQR={yape}
+          guestCode={guestCode}
+          onSaveGifts={(gifts) => setGiftsSelected(gifts)}
         />
       </div>
       <div className="my-2">

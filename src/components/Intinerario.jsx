@@ -1,11 +1,7 @@
 import fondo from "../assets/fondo.png";
-import copas from "../assets/copas.png";
 import novios from "../assets/novios.png";
 import vestimenta from "../assets/vestimenta.png";
 export default function Itinerario({
-  horaCeremonia,
-  lugarCeremonia,
-  mapsCeremonia,
   horaRecepcion,
   lugarRecepcion,
   mapsRecepcion,
@@ -21,24 +17,7 @@ export default function Itinerario({
         backgroundPosition: "center",
       }}
     >
-    
-      {/* CEREMONIA */}
-      {/* <div className="text-center mt-6 relative z-10">
-        <p className="text-lg font-semibold mt-2">Ceremonia</p>
-        <img src={novios} alt="Iglesia" className="w-32 h-32 mx-auto mb-3 opacity-90" />
-        <p className="text-3xl font-texto">{horaCeremonia}</p>
-        <p className="text-lg font-semibold mt-2">{lugarCeremonia}</p>
-
-        <a href={mapsCeremonia} target="_blank" rel="noopener noreferrer">
-          <button className="mt-4 bg-cream text-black-soft px-4 py-2 rounded-full shadow-md font-texto text-sm">
-            Llegar a Ceremonia
-          </button>
-        </a>
-      </div> */}
-
-      {/* SEPARADOR */}
-      {/* <div className="w-20 h-[2px] bg-cream/70 mx-auto my-6 rounded-full"></div> */}
-
+  
       {/* RECEPCIÓN */}
       <div className="text-center mt-2 relative z-10">
         {/* <p className="text-lg font-semibold mt-2">Recepción</p> */}
