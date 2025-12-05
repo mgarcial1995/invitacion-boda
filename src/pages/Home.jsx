@@ -11,7 +11,11 @@ import Itinerario from "../components/Intinerario";
 import Confirmacion from "../components/Confirmacion";
 import RegalosTransferencia from "../components/RegalosTransferencia";
 
-import { traerDatosInvitado, confirmarAsistencia } from "../services/servicios";
+import {
+  traerDatosInvitado,
+  confirmarAsistencia,
+  actualizarDedicatoria,
+} from "../services/servicios";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LoaderFullscreen from "../components/LoaderFullscreen";
@@ -61,8 +65,11 @@ const Home = () => {
   const fetchInvitado = async () => {
     try {
       const data = await traerDatosInvitado(guestCode);
-      console.log("Datos del invitado:", data);
       setGuestData(data);
+
+      if (data?.dedication) {
+        setDedicacion(data.dedication);
+      }
     } catch (error) {
       console.error("Error cargando invitado:", error);
     } finally {
@@ -253,6 +260,33 @@ const Home = () => {
         resize-none text-sm text-[#4B4B4B]
       "
           ></textarea>
+
+          <button
+            onClick={async () => {
+              if (!dedicacion.trim()) {
+                alert("Por favor escribe una dedicatoria antes de enviarla.");
+                return;
+              }
+
+              try {
+                await actualizarDedicatoria({
+                  code: guestCode,
+                  dedication: dedicacion,
+                });
+
+                fetchInvitado();
+              } catch (error) {
+                alert("Ocurrió un error al guardar tu dedicatoria.");
+              }
+            }}
+            className="
+    mt-4 bg-gradient-to-b from-[#E4C77F] to-[#B79240]
+    text-white py-3 px-6 rounded-full shadow-md font-semibold
+    active:scale-95 transition
+  "
+          >
+            Enviar dedicatoria
+          </button>
         </section>
       )}
 
