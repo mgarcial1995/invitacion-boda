@@ -247,46 +247,50 @@ const Home = () => {
             Si deseas dejarnos unas palabras especiales, puedes escribirlas aquí
             💛
           </p>
-
-          <textarea
-            value={dedicacion}
-            onChange={(e) => setDedicacion(e.target.value)}
-            placeholder="Escribe tu mensaje aquí..."
-            className="
+          <div className="flex flex-col w-full">
+            <textarea
+              value={dedicacion}
+              onChange={(e) => setDedicacion(e.target.value)}
+              placeholder="Escribe tu mensaje aquí..."
+              className="
         w-full max-w-md mx-auto h-32 p-4
         rounded-2xl border border-[#D4C49A] 
         bg-white shadow-sm font-[Poppins]
         focus:outline-none focus:ring-2 focus:ring-[#B79240]
         resize-none text-sm text-[#4B4B4B]
       "
-          ></textarea>
+            ></textarea>
+            <div>
+              <button
+                onClick={async () => {
+                  if (!dedicacion.trim()) {
+                    alert(
+                      "Por favor escribe una dedicatoria antes de enviarla."
+                    );
+                    return;
+                  }
 
-          <button
-            onClick={async () => {
-              if (!dedicacion.trim()) {
-                alert("Por favor escribe una dedicatoria antes de enviarla.");
-                return;
-              }
+                  try {
+                    await actualizarDedicatoria({
+                      code: guestCode,
+                      dedication: dedicacion,
+                    });
 
-              try {
-                await actualizarDedicatoria({
-                  code: guestCode,
-                  dedication: dedicacion,
-                });
-
-                fetchInvitado();
-              } catch (error) {
-                alert("Ocurrió un error al guardar tu dedicatoria.");
-              }
-            }}
-            className="
+                    fetchInvitado();
+                  } catch (error) {
+                    alert("Ocurrió un error al guardar tu dedicatoria.");
+                  }
+                }}
+                className="
     mt-4 bg-gradient-to-b from-[#E4C77F] to-[#B79240]
     text-white py-3 px-6 rounded-full shadow-md font-semibold
     active:scale-95 transition
   "
-          >
-            Enviar dedicatoria
-          </button>
+              >
+                Enviar dedicatoria
+              </button>
+            </div>
+          </div>
         </section>
       )}
 
