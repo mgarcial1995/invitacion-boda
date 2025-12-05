@@ -80,7 +80,7 @@ const Home = () => {
         other_gift: otherGiftText,
         dedication: dedicacion,
       });
-
+      console.log(giftsSelected);
       await fetchInvitado();
     } catch (error) {
       console.error(error);
