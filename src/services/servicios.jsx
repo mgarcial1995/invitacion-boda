@@ -1,5 +1,10 @@
 import apiClient from "./apiClient";
 
+export const traerInvitados = async () => {
+  const response = await apiClient.get(`/guests`);
+  return response.data;
+};
+
 export const traerDatosInvitado = async (code) => {
   const response = await apiClient.get(`/guests/${code}`);
   return response.data;
